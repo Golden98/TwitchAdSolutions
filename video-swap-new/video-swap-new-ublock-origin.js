@@ -1,5 +1,15 @@
 twitch-videoad.js text/javascript
 (function() {
+    setInterval(() => {
+        let buttonQueries = ['button[aria-label="Claim Bonus"]', 'button[aria-label="Claim bonus"]']
+        buttonQueries.forEach(query => {
+            const element = document.querySelector(query);
+            if (element) {
+                element.click();
+            }
+        }
+    }, 1000);
+    
     if ( /(^|\.)twitch\.tv$/.test(document.location.hostname) === false ) { return; }
     var ourTwitchAdSolutionsVersion = 2;// Only bump this when there's a breaking change to Twitch, the script, or there's a conflict with an unmaintained extension which uses this script
     if (window.twitchAdSolutionsVersion && window.twitchAdSolutionsVersion >= ourTwitchAdSolutionsVersion) {
